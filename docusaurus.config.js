@@ -9,6 +9,11 @@ module.exports = {
     organizationName: 'latreon',
     projectName: 'nest-starter-kit',
     themeConfig: {
+        colorMode: {
+            defaultMode: 'dark',
+            disableSwitch: false,
+            respectPrefersColorScheme: true,
+        },
         navbar: {
             title: 'NestJS Starter Kit',
             logo: {
@@ -56,11 +61,7 @@ module.exports = {
                         {
                             label: 'Report Issues',
                             href: 'https://github.com/latreon/nest-starter-kit/issues',
-                        },
-                        {
-                            label: 'NestJS',
-                            href: 'https://nestjs.com',
-                        },
+                        }
                     ],
                 },
                 {

@@ -45,6 +45,10 @@
   background-color: #fff;
 }
 
+html[data-theme='dark'] .features {
+  background-color: #1a1a2e;
+}
+
 .featureIcon {
   font-size: 2.5rem;
   margin-bottom: 1.2rem;
@@ -57,10 +61,18 @@
   color: #0f172a;
 }
 
+html[data-theme='dark'] .featureTitle {
+  color: #f8fafc;
+}
+
 .featureDescription {
   color: #64748b;
   font-size: 1.05rem;
   line-height: 1.6;
+}
+
+html[data-theme='dark'] .featureDescription {
+  color: #e2e8f0;
 }
 
 .featureCard {
@@ -73,9 +85,20 @@
   border: 1px solid #e2e8f0;
 }
 
+html[data-theme='dark'] .featureCard {
+  background-color: #1e293b;
+  border-color: #334155;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
 .featureCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme='dark'] .featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
 }
 
 .codeShowcase {
@@ -86,14 +109,17 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
-
 .sectionTitle {
   font-size: 2.2rem;
   font-weight: 700;
-  margin-bottom: 2.5rem;
+  margin: 2.5rem 0;
   text-align: center;
   position: relative;
   color: #0f172a;
+}
+
+html[data-theme='dark'] .sectionTitle {
+  color: #f1f5f9;
 }
 
 .sectionTitle:after {
@@ -131,10 +157,18 @@
   margin-top: 0;
 }
 
+html[data-theme='dark'] .securityFeatures {
+  background-color: #111827;
+}
+
 .authFlow {
   background-color: #fff;
   margin-top: 0;
   padding: 3rem 0 5rem;
+}
+
+html[data-theme='dark'] .authFlow {
+  background-color: #1a1a2e;
 }
 
 .callToAction {
@@ -155,6 +189,24 @@
   max-width: 800px;
   margin: 0 auto 2.5rem;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.callToActionButton {
+  background-color: white !important;
+  color: #e0234e !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  padding: 0.9rem 2.2rem !important;
+  font-size: 1.1rem !important;
+  border: none !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+}
+
+.callToActionButton:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+  background-color: #f8f9fa !important;
 }
 
 .callToAction .button {
@@ -210,4 +262,100 @@
   margin: 0 auto 2rem;
   font-size: 1.2rem;
   color: var(--ifm-color-emphasis-700);
+}
+
+html[data-theme='dark'] .sectionDescription {
+  color: #cbd5e1;
+}
+
+/* Dark mode enhancements */
+html[data-theme='dark'] ul {
+  color: #e2e8f0;
+}
+
+html[data-theme='dark'] li {
+  color: #e2e8f0;
+}
+
+html[data-theme='dark'] p {
+  color: #e2e8f0;
+}
+
+html[data-theme='dark'] h3, 
+html[data-theme='dark'] h4 {
+  color: #f8fafc !important;
+}
+
+html[data-theme='dark'] strong {
+  color: #ffffff;
+}
+
+.sectionHeader {
+  margin-bottom: 1rem;
+  color: #0f172a;
+  border-bottom: 2px solid #e0234e;
+  padding-bottom: 0.5rem;
+}
+
+html[data-theme='dark'] .sectionHeader {
+  color: #f1f5f9;
+}
+
+.securityHeader {
+  margin-bottom: 1.5rem;
+  color: #0f172a;
+}
+
+html[data-theme='dark'] .securityHeader {
+  color: #f1f5f9;
+}
+
+.authSectionHeader {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+html[data-theme='dark'] .authSectionHeader {
+  color: #f1f5f9;
+}
+
+.infoBox {
+  margin-top: 1rem;
+  background-color: #f1f5f9;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+html[data-theme='dark'] .infoBox {
+  background-color: #1e293b;
+  color: #e2e8f0;
+}
+
+/* Additional dark mode fixes */
+html[data-theme='dark'] .installCommand {
+  background-color: #0d1117;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme='dark'] .codeShowcase {
+  background-color: #0f172a;
+  border-color: #334155;
+}
+
+html[data-theme='dark'] .installCommand p {
+  color: #cbd5e1;
+}
+
+html[data-theme='dark'] .featureCard p {
+  color: #e2e8f0;
+}
+
+html[data-theme='dark'] .featureCard li {
+  color: #e2e8f0;
+}
+
+html[data-theme='dark'] .featureCard ul {
+  color: #e2e8f0;
 }

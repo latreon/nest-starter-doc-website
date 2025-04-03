@@ -37,7 +37,7 @@ function Feature({ title, description, icon, subFeatures }) {
                     {subFeatures && (
                         <ul style={{ textAlign: 'left', marginTop: '1rem' }}>
                             {subFeatures.map((feature, idx) => (
-                                <li key={idx} style={{ marginBottom: '0.5rem', color: '#64748b' }}>
+                                <li key={idx} style={{ marginBottom: '0.5rem' }}>
                                     {feature}
                                 </li>
                             ))}
@@ -51,6 +51,7 @@ function Feature({ title, description, icon, subFeatures }) {
 
 export default function Home() {
     const { siteConfig } = useDocusaurusContext();
+
     return (
         <Layout
             title={`${siteConfig.title}`}
@@ -151,7 +152,7 @@ export default function Home() {
                         <div className="row">
                             <div className="col col--6">
                                 <div className={styles.featureCard} style={{ height: '100%' }}>
-                                    <h3 style={{ marginBottom: '1rem', color: '#0f172a', borderBottom: '2px solid #e0234e', paddingBottom: '0.5rem' }}>
+                                    <h3 className={styles.sectionHeader}>
                                         <span role="img" aria-label="lock">🔒</span> Encrypted 2FA Secrets
                                     </h3>
                                     <p>This starter kit implements industry-standard encryption for 2FA secrets, addressing a common security vulnerability:</p>
@@ -165,7 +166,7 @@ export default function Home() {
                             </div>
                             <div className="col col--6">
                                 <div className={styles.featureCard} style={{ height: '100%' }}>
-                                    <h3 style={{ marginBottom: '1rem', color: '#0f172a', borderBottom: '2px solid #e0234e', paddingBottom: '0.5rem' }}>
+                                    <h3 className={styles.sectionHeader}>
                                         <span role="img" aria-label="shield">🛡️</span> Data Protection
                                     </h3>
                                     <p>All sensitive data is properly protected following industry best practices:</p>
@@ -182,7 +183,7 @@ export default function Home() {
                         <div className="row" style={{ marginTop: '2rem' }}>
                             <div className="col col--12">
                                 <div className={styles.featureCard} style={{ textAlign: 'center', padding: '2rem' }}>
-                                    <h3 style={{ marginBottom: '1.5rem', color: '#0f172a' }}>Security Best Practices</h3>
+                                    <h3 className={styles.securityHeader}>Security Best Practices</h3>
                                     <div className="row">
                                         <div className="col col--4">
                                             <div style={{ marginBottom: '1.5rem' }}>
@@ -240,7 +241,7 @@ export default function Home() {
                         <div className="row">
                             <div className="col col--6">
                                 <div className={styles.featureCard}>
-                                    <h3 style={{ marginBottom: '1rem', color: '#0f172a', borderBottom: '2px solid #e0234e', paddingBottom: '0.5rem' }}>
+                                    <h3 className={styles.sectionHeader}>
                                         <span role="img" aria-label="rocket">🚀</span> Quick Start
                                     </h3>
                                     <CodeBlock className="language-bash">
@@ -260,14 +261,14 @@ npm run migration:run
 # Start development server
 npm run start:dev`}
                                     </CodeBlock>
-                                    <div style={{ marginTop: '1rem', backgroundColor: '#f1f5f9', padding: '1rem', borderRadius: '6px', fontSize: '0.9rem' }}>
+                                    <div className={styles.infoBox}>
                                         <p><strong>Access the API documentation:</strong> http://localhost:3000/api/docs</p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col col--6">
                                 <div className={styles.featureCard}>
-                                    <h3 style={{ marginBottom: '1rem', color: '#0f172a', borderBottom: '2px solid #e0234e', paddingBottom: '0.5rem' }}>
+                                    <h3 className={styles.sectionHeader}>
                                         <span role="img" aria-label="folder">📁</span> Project Structure
                                     </h3>
                                     <CodeBlock className="language-text" style={{ fontSize: '0.85rem' }}>
@@ -288,7 +289,7 @@ npm run start:dev`}
 ├── database/           # Database setup and migrations
 └── main.ts             # Application entry point`}
                                     </CodeBlock>
-                                    <div style={{ marginTop: '1rem', backgroundColor: '#f1f5f9', padding: '1rem', borderRadius: '6px', fontSize: '0.9rem' }}>
+                                    <div className={styles.infoBox}>
                                         <p>A well-organized structure following <strong>NestJS best practices</strong> and ensuring <strong>maintainability</strong>.</p>
                                     </div>
                                 </div>
@@ -304,7 +305,7 @@ npm run start:dev`}
                         <div className="row">
                             <div className="col col--4">
                                 <div className={styles.featureCard}>
-                                    <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#0f172a' }}>JWT Authentication</h3>
+                                    <h3 className={styles.authSectionHeader}>JWT Authentication</h3>
                                     <ul>
                                         <li>Login with email/password to receive JWT token</li>
                                         <li>Use token for subsequent authenticated requests</li>
@@ -314,7 +315,7 @@ npm run start:dev`}
                             </div>
                             <div className="col col--4">
                                 <div className={styles.featureCard}>
-                                    <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#0f172a' }}>Two-Factor Authentication</h3>
+                                    <h3 className={styles.authSectionHeader}>Two-Factor Authentication</h3>
                                     <ul>
                                         <li>Enable 2FA for enhanced security</li>
                                         <li>2FA secrets are securely encrypted in the database</li>
@@ -324,7 +325,7 @@ npm run start:dev`}
                             </div>
                             <div className="col col--4">
                                 <div className={styles.featureCard}>
-                                    <h3 style={{ fontSize: '1.4rem', marginBottom: '1rem', color: '#0f172a' }}>API Key Authentication</h3>
+                                    <h3 className={styles.authSectionHeader}>API Key Authentication</h3>
                                     <ul>
                                         <li>Alternative authentication for service-to-service communication</li>
                                         <li>Unique per-user API keys with fine-grained permissions</li>
@@ -345,7 +346,7 @@ npm run start:dev`}
                         </p>
                         <div className={styles.buttons}>
                             <Link
-                                className="button button--lg"
+                                className={clsx("button button--secondary button--lg", styles.callToActionButton)}
                                 to="/docs/introduction">
                                 Read Documentation
                             </Link>
