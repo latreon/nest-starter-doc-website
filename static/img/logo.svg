@@ -1,0 +1,9 @@
+<!-- nest-starter-kit-doc/static/img/logo.svg -->
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M60 10L10 35V85L60 110L110 85V35L60 10Z" fill="#E0234E" />
+  <path d="M60 10L110 35V85L60 110V10Z" fill="#C4173A" />
+  <path d="M60 56.6L38.2 67V46.3L60 36V56.6Z" fill="white" />
+  <path d="M60 56.6L81.8 67V46.3L60 36V56.6Z" fill="#EEEEEE" />
+  <path d="M60 84L38.2 73.3V89.6L60 100V84Z" fill="white" />
+  <path d="M60 84L81.8 73.3V89.6L60 100V84Z" fill="#EEEEEE" />
+</svg>

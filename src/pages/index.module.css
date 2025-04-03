@@ -1,0 +1,213 @@
+.heroBanner {
+  padding: 7rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: #171c2c;
+  color: white;
+}
+
+.heroBanner h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  color: #e0234e;
+  display: inline-block;
+}
+
+.heroBanner p {
+  font-size: 1.6rem;
+  margin-bottom: 3.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e2e8f0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.buttons a {
+  margin: 0 0.5rem;
+  display: inline-block;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0 5rem;
+  width: 100%;
+  background-color: #fff;
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.featureTitle {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #0f172a;
+}
+
+.featureDescription {
+  color: #64748b;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.featureCard {
+  border-radius: 12px;
+  padding: 2rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.codeShowcase {
+  background-color: #f8fafc;
+  padding: 3rem 0 5rem;
+  width: 100%;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+
+.sectionTitle {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  color: #0f172a;
+}
+
+.sectionTitle:after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #e0234e, #ff4c70);
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.installCommand {
+  background-color: #0f172a;
+  color: #f8fafc;
+  border-radius: 12px;
+  padding: 2.5rem;
+  margin: 3rem auto 0;
+  max-width: 800px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.installTitle {
+  color: #e0234e;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.securityFeatures {
+  background-color: #f1f5f9;
+  padding: 3rem 0 5rem;
+  margin-top: 0;
+}
+
+.authFlow {
+  background-color: #fff;
+  margin-top: 0;
+  padding: 3rem 0 5rem;
+}
+
+.callToAction {
+  background: linear-gradient(135deg, #e0234e, #bd1c42);
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+
+.callToAction h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.callToAction p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.callToAction .button {
+  background-color: white;
+  color: #e0234e;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+}
+
+.callToAction .button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 3rem 1.5rem;
+  }
+  
+  .heroBanner h1 {
+    font-size: 2.8rem;
+  }
+  
+  .heroBanner p {
+    font-size: 1.2rem;
+  }
+  
+  .securityFeatures,
+  .authFlow,
+  .features,
+  .codeShowcase {
+    padding: 2rem 1.5rem 4rem;
+  }
+  
+  .featureCard {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Feature Grid Styles - Only keeping what's used */
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.sectionDescription {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.2rem;
+  color: var(--ifm-color-emphasis-700);
+}
