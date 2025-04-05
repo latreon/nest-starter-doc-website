@@ -2,6 +2,7 @@ module.exports = {
     docs: [
         'introduction',
         'getting-started',
+        'setup-guide',
         {
             type: 'category',
             label: 'Authentication',

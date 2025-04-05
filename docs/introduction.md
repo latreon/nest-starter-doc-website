@@ -62,7 +62,9 @@ This will create a new NestJS project with all the features and best practices a
   
 - **Developer Experience**
   - Hot module replacement
-  - Well-organized project structure
+  - SWC compiler for faster builds
+  - Standardized module structure
+  - Integration tests
   - Extensive documentation
 
 ## Security First Approach
@@ -81,7 +83,7 @@ This starter kit implements industry-standard encryption for 2FA secrets, addres
 ### Enhanced Authentication
 
 - Multiple authentication strategies (JWT, API Key)
-- Automatic token refresh mechanism
+- Complete JWT authentication with access and refresh tokens
 - Configurable token expiration
 - Protection against common authentication attacks
 
@@ -90,10 +92,20 @@ This starter kit implements industry-standard encryption for 2FA secrets, addres
 - All sensitive data is properly encrypted or hashed
 - Passwords are hashed using bcrypt with proper salt rounds
 - Personal information is protected according to best practices
+- Refresh tokens are securely stored with hashing
+
+## SWC Compiler Support
+
+This starter kit utilizes SWC for faster compilation:
+
+- Significantly faster build times compared to TypeScript compiler
+- Same type-checking capabilities when using `typeCheck: true`
+- Compatible with all NestJS features
+- Configured for optimal performance
 
 ## Project Structure
 
-The starter kit follows a well-organized structure that adheres to NestJS best practices:
+The project follows a standardized modular structure:
 
 ```
 src/
@@ -107,21 +119,35 @@ src/
 │   │   └── exception/    # Exception filters
 │   └── modules/          # Feature modules
 │       ├── auth/         # Authentication module
+│       │   ├── controllers/ # Auth controllers
+│       │   ├── dto/      # Auth-specific DTOs
+│       │   ├── entities/ # Auth-related entities
+│       │   ├── guards/   # Auth guards
+│       │   ├── services/ # Auth services
+│       │   ├── strategies/ # Passport strategies
+│       │   └── types/    # Auth type definitions
 │       ├── user/         # User management module
+│       │   ├── controllers/ # User controllers
+│       │   ├── dto/      # User-specific DTOs
+│       │   ├── entities/ # User entities
+│       │   └── services/ # User services
 │       └── shared/       # Shared services and utilities
 ├── config/               # Configuration settings
 ├── database/             # Database setup and migrations
 └── main.ts               # Application entry point
 ```
 
+Each feature module follows the same standardized structure, matching the organization of the common module.
+
 ## Authentication Flow
 
 The starter kit provides several authentication methods:
 
-1. **JWT Authentication**
-   - Login with email/password to receive JWT token
-   - Use token for subsequent authenticated requests
-   - Automatic handling of token expiration and refresh
+1. **JWT Authentication with Refresh Tokens**
+   - Login with email/password to receive access and refresh tokens
+   - Use access token for authenticated requests
+   - When access token expires, use refresh token to get a new pair of tokens
+   - Logout to invalidate refresh tokens
 
 2. **Two-Factor Authentication (2FA)**
    - Enable 2FA for enhanced security
@@ -131,6 +157,27 @@ The starter kit provides several authentication methods:
 3. **API Key Authentication**
    - Alternative authentication for service-to-service communication
    - Unique per-user API keys with fine-grained permissions
+
+## Refresh Token Implementation
+
+This starter kit implements a secure refresh token mechanism:
+
+1. **How it works:**
+   - After successful login, both access and refresh tokens are issued
+   - Access tokens have a shorter lifespan (default 15 minutes)
+   - Refresh tokens have a longer lifespan (default 7 days)
+   - When the access token expires, the refresh token can be used to get a new pair of tokens
+   - Refresh tokens are stored securely in the database using bcrypt hashing
+
+2. **Endpoints:**
+   - `/auth/login` - Returns access and refresh tokens
+   - `/auth/refresh` - Uses refresh token to issue new tokens
+   - `/auth/logout` - Invalidates the refresh token
+
+3. **Security considerations:**
+   - Different secrets for access and refresh tokens
+   - Refresh tokens are hashed before storage
+   - One-time use - each refresh operation invalidates the old token
 
 ## Why Use This Starter Kit?
 

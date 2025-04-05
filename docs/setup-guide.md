@@ -1,11 +1,11 @@
 ---
-id: getting-started
-title: Getting Started
+id: setup-guide
+title: Setup Guide
 ---
 
-# Getting Started
+# NestJS Secure Starter Kit - Setup Guide
 
-Follow these steps to start using the NestJS Starter Kit.
+This guide will walk you through setting up and running the NestJS Secure Starter Kit.
 
 ## Prerequisites
 
@@ -13,34 +13,15 @@ Follow these steps to start using the NestJS Starter Kit.
 - npm or yarn
 - PostgreSQL database (optional - can run without database)
 
-## Creating a New Project
+## Setup Steps
 
-The easiest way to get started is by using our CLI:
-
-```bash
-npx nestjs-starter-kit my-project
-```
-
-This will create a new project in the `my-project` directory with all the starter kit features pre-configured.
-
-## Manual Installation
-
-Alternatively, you can clone the repository:
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/latreon/nest-starter-kit.git
-cd nest-starter-kit
-```
-
-2. Install dependencies:
+### 1. Install Dependencies
 
 ```bash
 npm install
 ```
 
-3. Configure Environment Variables:
+### 2. Configure Environment Variables
 
 Create a `.env` file in the root of the project based on `.env.example`:
 
@@ -71,7 +52,7 @@ THROTTLE_LIMIT=10
 SWAGGER_ENABLED=true
 ```
 
-4. Running Without a Database
+### 3. Running Without a Database
 
 You can run the application without a database by setting:
 
@@ -86,12 +67,13 @@ In this mode, the application will use in-memory data with a mock user:
 
 This is useful for quick testing and development. Note that in this mode, most write operations (create/update/delete) will be disabled.
 
-5. Running With a Database (Optional)
+### 4. Running With a Database (Optional)
 
 If you want to use a database:
 
-- Set `DATABASE_ENABLED=true` in your `.env` file
-- Create a PostgreSQL database with the name specified in your `.env` file:
+1. Set `DATABASE_ENABLED=true` in your `.env` file
+
+2. Create a PostgreSQL database with the name specified in your `.env` file:
 
 ```bash
 psql -U postgres
@@ -99,13 +81,13 @@ CREATE DATABASE nest_starter;
 \q
 ```
 
-- Run database migrations:
+3. Run database migrations:
 
 ```bash
 npm run migration:run
 ```
 
-6. Starting the Application
+### 5. Build and Run the Application
 
 For development:
 ```bash
@@ -118,31 +100,18 @@ npm run build
 npm run start:prod
 ```
 
-The API server should now be running at http://localhost:3000.
+### 6. Access the API Documentation
 
 When running in development mode, you can access the Swagger documentation at:
 ```
 http://localhost:3000/api/docs
 ```
 
-## Project Structure
-
-```
-src/
-├── app/                  # Application core
-│   ├── common/           # Common utilities and helpers
-│   └── modules/          # Feature modules
-│       ├── auth/         # Authentication module
-│       ├── user/         # User management module
-│       └── shared/       # Shared services and utilities
-├── config/               # Configuration settings
-├── database/             # Database setup and migrations
-└── main.ts               # Application entry point
-```
-
 ## API Endpoints
 
 ### Authentication Endpoints
+
+The starter kit includes the following authentication endpoints:
 
 | Method | Endpoint             | Description                     | Protected |
 |--------|----------------------|---------------------------------|-----------|
@@ -155,6 +124,8 @@ src/
 
 ### User Endpoints
 
+The starter kit includes the following user management endpoints:
+
 | Method | Endpoint             | Description                     | Protected |
 |--------|----------------------|---------------------------------|-----------|
 | POST   | /users               | Create a new user               | Yes       |
@@ -165,10 +136,23 @@ src/
 | GET    | /users/profile       | Get current user profile        | Yes       |
 | PUT    | /users/profile       | Update current user profile     | Yes       |
 
-## Next Steps
+## Troubleshooting
 
-After setting up your project, check out the following sections to learn more about the features and how to use them:
+### Database Connection Issues
 
-- [Setup Guide](setup-guide)
-- [Authentication](authentication/overview)
-- [Database Configuration](database/typeorm-setup) 
+- Ensure PostgreSQL is running
+- Verify your database credentials in the `.env` file
+- Make sure the specified database exists
+- Consider setting `DATABASE_ENABLED=false` to run without a database
+
+### Authentication Issues
+
+- Check that JWT secrets are properly set in the `.env` file
+- Verify user credentials when making API calls
+
+## Additional Commands
+
+- **Run tests**: `npm run test`
+- **Run e2e tests**: `npm run test:e2e`
+- **Generate migrations**: `npm run migration:generate -- -n MigrationName`
+- **Revert migrations**: `npm run migration:revert` 
